@@ -31,19 +31,26 @@ require("lazy").setup({
           'scrooloose/nerdtree',
           lazy = true,
       },
+           {
+    'nvim-telescope/telescope.nvim', tag = '0.1.8',
+-- or                              , branch = '0.1.x',
+      dependencies = { 'nvim-lua/plenary.nvim' }
+    },
       'jiangmiao/auto-pairs',
       'BenGH28/neo-runner.nvim',
+      { "folke/neodev.nvim", opts = {} },
 --      'ycm-core/YouCompleteMe',
       'numToStr/Comment.nvim',
 --      'feline-nvim/feline.nvim',
       'neovim/nvim-lspconfig',
+      'ivanesmantovich/xkbswitch.nvim',
           --'ms-jpq/coq_nvim',
       {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' }
       },
+      {'m1sh4k/file-actions-nvim', config=true},
       {
-        
           "folke/tokyonight.nvim",
         lazy = false,
         priority = 1000,
@@ -71,6 +78,7 @@ require("lazy").setup({
   -- automatically check for plugin updates
   checker = { enabled = true },
 })
+
 
 require('settings')
 require('binds')

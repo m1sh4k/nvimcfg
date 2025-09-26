@@ -2,7 +2,7 @@
 local cmd = vim.cmd
 local exec = vim.api.nvim_exec  -- execute Vimscript
 local g = vim.g                 -- global variables
-local opt = vim.opt             -- global/buffer/windows-scpped options
+local opt = vim.opt             -- global/buffer/windows-scoped options
 
 -- nu tipo
 opt.cursorline = true     -- Подсветка строки с курсором
@@ -25,31 +25,61 @@ opt.tabstop = 4           -- 1 tab == 4 spaces
 opt.smartindent = true    -- autoindent new lines
 
 
-require('lualine').setup() 
+require('lualine').setup({})
 vim.cmd[[colorscheme tokyonight]]
 --cmd'colorscheme gruvbox'
 
---local coq = require "coq"
-local lspconfig = require('lspconfig')
 
-lspconfig.pyright.setup {
-  -- Server-specific settings. See `:help lspconfig-setup`
+--vim.opt.spell = true
+--vim.opt.spelllang = {'ru', 'en'}
+--local coq = require "coq"
+
+local builtin = require('telescope.builtin')
+
+require("neodev").setup({})
+
+--local lspconfig = require('lspconfig')
+
+--local lspconfig = vim.lsp.config
+
+vim.diagnostic.config({
+  virtual_text = true,  -- show diagnostics inline
+  signs = true,         -- show signs in the sign column
+  update_in_insert = false,
+  underline = true,
+  severity_sort = true,
+})
+
+
+vim.lsp.config['lua_ls'] = {
+  settings = {
+    Lua = {
+      completion = {
+        callSnippet = "Replace"
+      }
+    }
+  }
+}
+vim.lsp.enable('lua_ls')
+
+vim.lsp.config['pyright'] = {
   settings = {
     ['pyright'] = {},
   },
 }
+vim.lsp.enable('pyright')
 
-lspconfig.clangd.setup {
+vim.lsp.config['clangd'] = {
     settings = {
         ['clangd'] = {},
     },
-}                                                               
+}
+vim.lsp.enable('clangd')
 
 --lspconfig.clangd.setup(coq.lsp_ensure_capabilities())
 --lspconfig.pyright.setup(coq.lsp_ensure_capabilities())
 
 --vim.cmd('COQnow -s')
---
 local cmp = require("cmp")
 	vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
@@ -90,7 +120,7 @@ local cmp = require("cmp")
 		}),
 	})
 
-require'cmp'.setup {
+cmp.setup {
   sources = {
     { name = 'nvim_lsp' }
   }
@@ -100,10 +130,10 @@ require'cmp'.setup {
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- An example for configuring `clangd` LSP to use nvim-cmp as a completion engine
-require('lspconfig').clangd.setup {
-  capabilities = capabilities,
-}
+--require('lspconfig').clangd.setup {
+ -- capabilities = capabilities,
+--}
 
-require('lspconfig').pyright.setup {
-    capabilities = capabilities,
-}
+--require('lspconfig').pyright.setup {
+--    capabilities = capabilities,
+--}
