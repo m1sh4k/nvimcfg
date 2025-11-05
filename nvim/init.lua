@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -18,8 +20,6 @@ vim.opt.rtp:prepend(lazypath)
 -- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
 -- This is also a good place to setup other settings (vim.opt)
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
 
 -- Setup lazy.nvim
 require("lazy").setup({
@@ -28,6 +28,32 @@ require("lazy").setup({
 --      'morhetz/gruvbox',
 --      'nvie/vim-flake8',
       {
+    'johnfrankmorgan/whitespace.nvim',
+    config = function ()
+        require('whitespace-nvim').setup({
+            -- configuration options and their defaults
+
+            -- `highlight` configures which highlight is used to display
+            -- trailing whitespace
+            highlight = 'DiffDelete',
+
+            -- `ignored_filetypes` configures which filetypes to ignore when
+            -- displaying trailing whitespace
+            ignored_filetypes = { 'TelescopePrompt', 'Trouble', 'help', 'dashboard' },
+
+            -- `ignore_terminal` configures whether to ignore terminal buffers
+            ignore_terminal = true,
+
+            -- `return_cursor` configures if cursor should return to previous
+            -- position after trimming whitespace
+            return_cursor = true,
+        })
+
+        -- remove trailing whitespace with a keybinding
+        vim.keymap.set('n', '<Leader>h', require('whitespace-nvim').trim)
+    end
+},
+        {
           'scrooloose/nerdtree',
           lazy = true,
       },
@@ -56,6 +82,7 @@ require("lazy").setup({
         priority = 1000,
         opts = {},
       },
+      'catppuccin/nvim',
       { 'echasnovski/mini.completion', version = false },
       --"ms-jpq/coq.artifacts"
   --    
@@ -74,7 +101,6 @@ require("lazy").setup({
 
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "gruvbox" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
 })

@@ -26,7 +26,7 @@ opt.smartindent = true    -- autoindent new lines
 
 
 require('lualine').setup({})
-vim.cmd[[colorscheme tokyonight]]
+vim.cmd[[colorscheme catppuccin-mocha]]
 --cmd'colorscheme gruvbox'
 
 
@@ -137,3 +137,5 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 --require('lspconfig').pyright.setup {
 --    capabilities = capabilities,
 --}
+-- Define a highlight group with a background color for trailing spaces
+
