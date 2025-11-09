@@ -43,7 +43,7 @@ require("neodev").setup({})
 --local lspconfig = vim.lsp.config
 
 vim.diagnostic.config({
-  virtual_text = true,  -- show diagnostics inline
+  virtual_text = {severity = { min = vim.diagnostic.severity.HINT }},  -- show diagnostics inline
   signs = true,         -- show signs in the sign column
   update_in_insert = false,
   underline = true,
@@ -69,10 +69,33 @@ vim.lsp.config['pyright'] = {
 }
 vim.lsp.enable('pyright')
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.positionEncoding = { "utf-8", "utf-16" }
+
 vim.lsp.config['clangd'] = {
-    settings = {
-        ['clangd'] = {},
+    cmd = {
+    "clangd",
+    "--clang-tidy",
+    "--background-index",
+    "-j=6",
+  --  "-all-scopes-completion",
+    "--completion-style=detailed",
+    "--header-insertion=iwyu",
+
+  },
+  capabilities=capabilities,
+  init_options = {
+    clangdFileStatus = true,
+    usePlaceholders = true,
+    completeUnimported = true,
+    fallbackFlags = {         -- compile flags if no compile_commands.json
+      "-Wunused-variable",
+      "-Wall",               -- enable extra warnings
+      "-Wextra",
+      "-Wpedantic",
+--      "-Werror"
     },
+  },
 }
 vim.lsp.enable('clangd')
 
