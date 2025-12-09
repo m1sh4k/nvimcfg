@@ -19,8 +19,10 @@ vim.api.nvim_set_keymap('n', '<F5>', ':FileActionsExecuteCode <CR>', { noremap =
 vim.api.nvim_set_keymap('n', '<F8>', ':FileActionsExamineCode <CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<F6>', ':update<CR>:luafile %<CR>',{noremap = true })
 
+
 --vim.api.nvim_set_keymap('n', '<F9>', ':w<CR>:!arduino-run-n-gun.sh %<CR>', {noremap = true})
 
+vim.api.nvim_set_keymap('n', '<leader>n', ':Neotree<CR>',{noremap = true })
 
 -- Telescope.nvim
 vim.api.nvim_set_keymap('n', '<leader>t', '<cmd>Telescope<CR>', { noremap = true, silent = true })
@@ -29,5 +31,10 @@ vim.keymap.set('n', 'ff', require('telescope.builtin').find_files, { noremap=tru
 vim.keymap.set('n', '<leader>l', require('telescope.builtin').live_grep, { noremap=true, silent=true, desc = "Telescope Live Grep" })
 
 vim.api.nvim_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', '<leader>y', '<cmd>yank+<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<leader>y', '"+y<CR>', { noremap = true, silent = true })
 
+
+vim.api.nvim_set_keymap('n', '<leader>R', ':set relativenumber!<CR>', { noremap = true, silent = true })
+
+-- whitespace.nvim
+vim.keymap.set('n', '<Leader>hs', require('whitespace-nvim').trim)
