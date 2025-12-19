@@ -15,9 +15,13 @@ vim.keymap.set('i', '<C-l>', '<Right>', { noremap = true, silent = true })
 -- NORMAL MOD
 
 vim.api.nvim_set_keymap('n', '<CR>', 'i', { noremap = true })
+
+-- FileActions
 vim.api.nvim_set_keymap('n', '<F5>', ':FileActionsExecuteCode <CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<F8>', ':FileActionsExamineCode <CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<F6>', ':update<CR>:luafile %<CR>',{noremap = true })
+vim.api.nvim_set_keymap('n', '<leader><F5>', ':FileActionsMakeRun <CR>i', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader><F8>', ':FileActionsMakeRunValgrind <CR>i', { noremap = true })
 
 
 --vim.api.nvim_set_keymap('n', '<F9>', ':w<CR>:!arduino-run-n-gun.sh %<CR>', {noremap = true})
