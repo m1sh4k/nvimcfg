@@ -33,7 +33,7 @@ vim.cmd[[colorscheme catppuccin-mocha]]
 --vim.opt.spell = true
 --vim.opt.spelllang = {'ru', 'en'}
 
-require('nvim-treesitter.config').setup {
+require('nvim-treesitter.configs').setup {
   highlight = { enable = true },
   indent = { enable = false },
 }
