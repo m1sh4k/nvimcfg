@@ -33,12 +33,13 @@ vim.cmd[[colorscheme catppuccin-mocha]]
 --vim.opt.spell = true
 --vim.opt.spelllang = {'ru', 'en'}
 
-local builtin = require('telescope.builtin')
-
-require('nvim-treesitter.configs').setup {
+require('nvim-treesitter.config').setup {
   highlight = { enable = true },
   indent = { enable = false },
 }
+
+local builtin = require('telescope.builtin')
+
 
 
 require("neodev").setup({})
