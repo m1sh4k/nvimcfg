@@ -33,13 +33,8 @@ vim.cmd[[colorscheme catppuccin-mocha]]
 --vim.opt.spell = true
 --vim.opt.spelllang = {'ru', 'en'}
 
-require('nvim-treesitter.config').setup {
-  highlight = { enable = true },
-  indent = { enable = false },
-}
 
 local builtin = require('telescope.builtin')
-
 
 
 require("neodev").setup({})
@@ -74,3 +69,4 @@ require('whitespace-nvim').setup({
 
         -- remove trailing whitespace with a keybinding
 
+require('modules.ts')

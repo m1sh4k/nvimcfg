@@ -36,7 +36,11 @@ require("lazy").setup({
 			},
 			'johnfrankmorgan/whitespace.nvim',
 			{
-				{'nvim-treesitter/nvim-treesitter'},
+				'nvim-treesitter/nvim-treesitter',
+				lazy = false,
+				build = ':TSUpdate'
+			},
+			{
 				{
 					"nvim-neo-tree/neo-tree.nvim",
 					dependencies = {
