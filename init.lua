@@ -69,10 +69,10 @@ require("lazy").setup({
 				dependencies = { 'nvim-tree/nvim-web-devicons' }
 			},
 			{'m1sh4k/file-actions-nvim', config=true},
-			{
+		--[[	{
 				"m1sh4k/http-llm-client-nvim",
 				config = true
-			},
+			},]]
 			{
 				"folke/tokyonight.nvim",
 				lazy = false,
