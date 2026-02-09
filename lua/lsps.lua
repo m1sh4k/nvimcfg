@@ -62,7 +62,7 @@ local cmp = require("cmp")
 				require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
 			end,
 		},
-		
+
 		window = {
 			-- completion = cmp.config.window.bordered(),
 			-- documentation = cmp.config.window.bordered(),
@@ -99,5 +99,3 @@ cmp.setup {
     { name = 'nvim_lsp' }
   }
 }
-
-
