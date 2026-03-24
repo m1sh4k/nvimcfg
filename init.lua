@@ -52,15 +52,10 @@ require("lazy").setup({
 				},
 			},
 			{
-				'scrooloose/nerdtree',
-				lazy = true,
-			},
-			{
 				'nvim-telescope/telescope.nvim', branch = 'master',
 				-- or                              , branch = '0.1.x',
 				dependencies = { 'nvim-lua/plenary.nvim' }
 			},
-			--'jiangmiao/auto-pairs',
 			{ "folke/neodev.nvim", opts = {} },
 			'numToStr/Comment.nvim',
 			'neovim/nvim-lspconfig',
@@ -73,14 +68,10 @@ require("lazy").setup({
 				"m1sh4k/http-llm-client-nvim",
 				config = true
 			},]]
-			{
-				"folke/tokyonight.nvim",
-				lazy = false,
-				priority = 1000,
-				opts = {},
-			},
+
 			'catppuccin/nvim',
 			{"hrsh7th/nvim-cmp",
+				lazy = true;
 			dependencies = {
 				"hrsh7th/cmp-nvim-lsp",
 				"hrsh7th/cmp-nvim-lua",

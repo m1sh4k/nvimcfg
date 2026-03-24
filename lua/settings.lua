@@ -70,3 +70,4 @@ require('whitespace-nvim').setup({
         -- remove trailing whitespace with a keybinding
 
 require('modules.ts')
+require('filetyped.ninja')
