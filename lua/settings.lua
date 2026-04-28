@@ -27,7 +27,8 @@ opt.smartindent = true    -- autoindent new linestt
 opt.softtabstop=4
 
 require('lualine').setup({})
-vim.cmd[[colorscheme catppuccin-mocha]]
+--vim.cmd[[colorscheme catppuccin-mocha]]
+vim.cmd[[colorscheme elflord]]
 
 
 --vim.opt.spell = true
@@ -68,6 +69,8 @@ require('whitespace-nvim').setup({
 })
 
         -- remove trailing whitespace with a keybinding
+
+vim.opt.termsync = false
 
 require('modules.ts')
 require('filetyped.ninja')

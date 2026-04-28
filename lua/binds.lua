@@ -7,6 +7,7 @@ vim.api.nvim_set_keymap('i', '<C-;>', '<Esc>', { noremap = true }) -- normal mod
 vim.api.nvim_set_keymap('n', '<leader>a', ':wa<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', { noremap = true })
 
+
 vim.api.nvim_set_keymap('i', '<C-Space>', '<Esc>', { noremap = true }) -- normal mode by ctrl + space
 vim.keymap.set('i', '<C-u>', '<Left>', { noremap = true, silent = true })
 vim.keymap.set('i', '<C-j>', '<Down>', { noremap = true, silent = true })
@@ -42,3 +43,6 @@ vim.api.nvim_set_keymap('n', '<leader>R', ':set relativenumber!<CR>', { noremap 
 
 -- whitespace.nvim
 vim.keymap.set('n', '<Leader>hs', require('whitespace-nvim').trim)
+
+
+vim.api.nvim_set_keymap('n', '<leader>Q', ':quitall<CR>', { noremap = true })

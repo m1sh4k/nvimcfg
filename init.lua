@@ -68,6 +68,7 @@ require("lazy").setup({
 				"m1sh4k/http-llm-client-nvim",
 				config = true
 			},]]
+			"simrat39/rust-tools.nvim",
 
 			'catppuccin/nvim',
 			{"hrsh7th/nvim-cmp",
